@@ -32,9 +32,9 @@ public class Hero {
     @Max(value = 99)
     private int age;
 
-//    @ManyToOne
-//    @JoinColumn(name = "id_country")
-//    private Country country;
+    @ManyToOne
+    @JoinColumn(name = "id_country")
+    private Country country;
 
     @ManyToMany(mappedBy = "heroes")
     public List<SuperPower> superpowers = new ArrayList<SuperPower>();
