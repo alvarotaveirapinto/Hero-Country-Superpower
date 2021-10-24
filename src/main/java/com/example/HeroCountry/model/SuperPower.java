@@ -1,20 +1,15 @@
 package com.example.HeroCountry.model;
 
 import lombok.*;
-import org.springframework.validation.annotation.Validated;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Validated
-@ToString
 @Table(name = "superpower")
 public class SuperPower {
     @Id
@@ -28,8 +23,8 @@ public class SuperPower {
     @ManyToMany
     @JoinTable(
             name = "hero_superpower" ,
-            joinColumns =  @JoinColumn(name = "id_superpower", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "id_hero", referencedColumnName = "id"))
+            joinColumns =  @JoinColumn(name = "id_superpower"),
+            inverseJoinColumns = @JoinColumn(name = "id_hero"))
             List<Hero> heroes = new ArrayList<Hero>();
 
 }

@@ -3,14 +3,13 @@ package com.example.HeroCountry.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.validation.annotation.Validated;
-
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -33,10 +32,11 @@ public class Hero {
     @Max(value = 99)
     private int age;
 
-    @ManyToOne
-    @JoinColumn(name = "id_country")
-    private Country country;
+//    @ManyToOne
+//    @JoinColumn(name = "id_country")
+//    private Country country;
 
-//    @ManyToMany(mappedBy = "heroes")
-//    private Set<Superpower> superpowers;
+    @ManyToMany(mappedBy = "heroes")
+    public List<SuperPower> superpowers = new ArrayList<SuperPower>();
+
 }

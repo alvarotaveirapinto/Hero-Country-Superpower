@@ -20,10 +20,12 @@ public class HeroController {
     public List<Hero> getHeroes() {
         return heroServ.findAll();
     }
+
     @GetMapping("/heroes/{id}")
     public Hero getHeroById(@PathVariable(name = "id") Long id) {
         return heroServ.findById(id);
     }
+
     @PostMapping("/heroes")
     public Hero addHero(@RequestBody @Valid Hero hero){
         return heroServ.save(hero);
