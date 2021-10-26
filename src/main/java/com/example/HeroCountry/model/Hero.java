@@ -36,7 +36,6 @@ public class Hero {
     @JoinColumn(name = "id_country")
     private Country country;
 
-    @ManyToMany(mappedBy = "heroes")
-    public List<SuperPower> superpowers = new ArrayList<SuperPower>();
-
+    @ManyToMany
+    public List<SuperPower> superPowerList;
 }
